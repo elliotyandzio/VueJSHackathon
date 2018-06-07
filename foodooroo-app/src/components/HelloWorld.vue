@@ -5,8 +5,9 @@
            type="text"
            class="column is-half"
     />
-    <p>{{ this.weather.timezone }}</p>
-    <p>{{ this.weather.currently.summary }}</p>
+
+    <p v-if="this.weather.timezone">{{this.weather.timezone}}</p>
+    <p v-if="this.weather.timezone">{{ this.weather.currently.summary }}</p>
   </div>
 </template>
 
