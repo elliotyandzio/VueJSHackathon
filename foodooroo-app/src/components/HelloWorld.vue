@@ -4,6 +4,7 @@
            placeholder="Enter your address"
            type="text"
     />
+    <p>{{ this.weather.timezone }}</p>
     <p>{{ this.weather.currently.summary }}</p>
   </div>
 </template>
