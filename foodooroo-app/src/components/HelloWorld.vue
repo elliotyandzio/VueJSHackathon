@@ -25,6 +25,7 @@
           <img v-if="this.weather.currently.summary === 'Overcast'" src="https://ak6.picdn.net/shutterstock/videos/2615726/thumb/1.jpg?i10c=img.resize(height:160)" />
           <img v-if="this.weather.currently.summary === 'Sunny'" src="http://magarticles.magzter.com/articles/4212/195779/582eb9d4ed894/Sunny-Side-Trump.jpg" />
           <img v-if="this.weather.currently.summary === 'Rainy'" src="http://thechronicleherald.ca/sites/default/files/imagecache/ch_article_main_image/articles/B97693421Z.120170609150556000GFHHF80P.11.jpg" />
+          <img v-if="this.weather.currently.summary === 'Clear'" src="https://jooinn.com/images/skyscrapers-in-city-against-clear-sky.jpg" />
         </div>
       </div>
     </div>
