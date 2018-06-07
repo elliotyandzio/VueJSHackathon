@@ -1,32 +1,37 @@
 <template>
-  <h1>Taco Generator</h1>
+  <div class="hello">
+    <input ref="autocomplete"
+           placeholder="Enter your address"
+           type="text"
+    />
+  </div>
 </template>
 
 <script>
-export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'Welcome to Your Taco Generator App'
+  import axios from 'axios'
+
+  export default {
+    mounted() {
+      var autocomplete = new google.maps.places.Autocomplete(
+      /** @type {!HTMLInputElement} */(this.$refs.autocomplete),
+      {types: ['geocode']});
+
+      autocomplete.addListener('place_changed', () => {
+        let place = autocomplete.getPlace();
+        let lat = place.geometry.location.lat();
+        let lon = place.geometry.location.lng();
+
+        console.log(`The coordinates ${lat}, ${lon}`);
+        axios
+        .get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a942b21cd38241b71065d147d4852fd1/${lat},${lon}`)
+        .then(res => console.log(res.data))
+      });
+
+
     }
   }
-}
-</script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+  // https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/
+  // https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a942b21cd38241b71065d147d4852fd1/42.3601,-71.0589
+
+</script>
