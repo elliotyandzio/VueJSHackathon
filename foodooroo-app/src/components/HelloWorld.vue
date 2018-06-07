@@ -3,6 +3,7 @@
     <input ref="autocomplete"
            placeholder="Enter your address"
            type="text"
+           class="column is-half"
     />
     <p>{{ this.weather.timezone }}</p>
     <p>{{ this.weather.currently.summary }}</p>
@@ -35,8 +36,6 @@
         .get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a942b21cd38241b71065d147d4852fd1/${lat},${lon}`)
         .then(res => this.weather = res.data);
       });
-
-
     }
   }
 
