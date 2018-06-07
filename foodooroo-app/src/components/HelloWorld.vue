@@ -3,6 +3,7 @@
     <input ref="autocomplete"
            placeholder="Enter your address"
            type="text"
+           class="column is-half"
     />
   </div>
 </template>
