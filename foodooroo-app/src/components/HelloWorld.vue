@@ -4,6 +4,7 @@
            placeholder="Enter your address"
            type="text"
     />
+    <p>{{ this.weather.currently.summary }}</p>
   </div>
 </template>
 
@@ -11,6 +12,12 @@
   import axios from 'axios'
 
   export default {
+    data() {
+        return {
+          weather: {}
+        };
+      },
+
     mounted() {
       var autocomplete = new google.maps.places.Autocomplete(
       /** @type {!HTMLInputElement} */(this.$refs.autocomplete),
@@ -22,9 +29,10 @@
         let lon = place.geometry.location.lng();
 
         console.log(`The coordinates ${lat}, ${lon}`);
+
         axios
         .get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a942b21cd38241b71065d147d4852fd1/${lat},${lon}`)
-        .then(res => console.log(res.data))
+        .then(res => this.weather = res.data);
       });
 
 
