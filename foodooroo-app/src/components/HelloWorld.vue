@@ -27,8 +27,6 @@
         .get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a942b21cd38241b71065d147d4852fd1/${lat},${lon}`)
         .then(res => console.log(res.data))
       });
-
-
     }
   }
 
